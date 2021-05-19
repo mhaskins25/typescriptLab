@@ -10,19 +10,18 @@ let mountains: Mountain[] = [
     { name: 'Denali', height: 20310 },
   ];
 
-// Close to figuring this one out, I think this code properly finds the tallest mountain, just couldn't get it to print out the name of the tallest mountain
-//   function findNameOfTallestMountain(param: Mountain[]):string{
-//     let maxHeight = param[0].height;
-//     let maxMountainHeight;
-//     param.forEach(element =>{
-//         if(element.height > maxHeight){
-//             maxHeight = element.height;
-//             maxMountainHeight = element;
-//         }
-//   }
+  function findNameOfTallestMountain(param: Mountain[]):string{
+    let maxHeight = param[0];
+    param.forEach(element =>{
+        if(element.height > maxHeight.height){
+            maxHeight = element;
+        }
+  })
+        return maxHeight.name;
+}
 
-// //   let tallestMountain = findNameOfTallestMountain(mountains);
-// //   console.log(tallestMountain);
+let tallestMountain = findNameOfTallestMountain(mountains);
+console.log(tallestMountain);
 
 //Products
   interface Product {
@@ -78,12 +77,13 @@ let inventory: InventoryItem[] = [
   ];
 
 //Really close to figuring this one out, I think something is wrong with my syntax in line 83
-//   function calcInventoryValue((param: InventoryItem[]):number{
-//     let totalValue = 0;
-//     for (let i = 0; i < param.length; i++) {
-//         totalValue += parseInt(param.[i].price)*(param[i].quantity);
-//       }
-//   }
+  function calcInventoryValue(param: InventoryItem[]):number{
+    let totalValue = 0;
+    for (let i = 0; i < param.length; i++) {
+        totalValue += param[i].product.price*param[i].quantity;
+      }
+      return totalValue
+  }
 
-//   let inventoryValue = calcInventoryValue(inventory);
-//   console.log(inventoryValue);
+let inventoryValue = calcInventoryValue(inventory);
+console.log(inventoryValue);
